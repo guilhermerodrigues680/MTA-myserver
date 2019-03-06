@@ -1,0 +1,8 @@
+<help popup="yes">
+___________________________________________
+         --  M E U  M O D   --
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+/res 0 = Reinicia myserver
+/res 1 = Roda Funcao CarregarAoIniciar
+/cv [id] = Criar Carro
+</help>

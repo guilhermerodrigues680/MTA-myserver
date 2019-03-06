@@ -1,0 +1,14 @@
+<meta>
+	<!-- MEU script -->
+	
+	<info author="Guilherme_BH" type="gamemode" name="Meu_jogo" description="Meu primeiro mod" />
+
+	<config src="help.xml" type="client" /> 
+	<script src="client/gui.lua" type="client" />
+	<script src="script.lua" type="server" />
+	<script src="login.lua" type="server" />
+	
+	<script src="testes.lua" type="server" />
+	<script src="testesClient.lua" type="client" />
+
+</meta>
