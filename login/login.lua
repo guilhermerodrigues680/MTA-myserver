@@ -7,7 +7,8 @@ function loginHandler(username,senha)
 			
 			if (client) then
 				--spawnPlayer(client, 1959.55, -1714.46, 17)
-				spawnPlayer(client, 10, 10, 5)
+				spawnPlayer(client, 10, 10, 5) --Iniciar na origem
+				--spawnPlayer(client, 2886.5625, -1571.4733, 10.4434) --Iniciar no beta
 				fadeCamera(client, true)
 				setCameraTarget(client, client)
 				outputChatBox("Bem-vindo ao servidor!!!", client)

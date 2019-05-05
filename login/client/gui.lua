@@ -1,15 +1,27 @@
--- criar a função e definir os dois parâmetros do evento: 'button' - botão e state - estado do clique
-function requisitarLogin(button,state)
-	-- se o botão foi clicado com o botão esquerdo do mouse, e o estado do clique for 'up' (solto)
-	if button == "left" and state == "up" then
-		-- mudar o foco de entrada de volta para o jogo (permitindo ao jogador se movimentar e abrir o chat)
-		guiSetInputEnabled(false)
-		-- ocultar a janela e todos os componentes
-		guiSetVisible(wdwLogin, false)
-		-- desabilitar o cursor do mouse
-		showCursor(false)
+--[[
+addEventHandler( "onClientResourceStart", getResourceRootElement(getThisResource()), 
+	function ()
+		-- Chamando a função para criar a janela de login e seus componentes.
+		criarJanelaDeLogin()
+
+		-- Mostrar uma mensagem de boas-vindas ao jogador.
+		outputChatBox("Bem-vindo ao servidor do Guilherme! Por favor, efetue seu login.")
+
+		-- Se a GUI foi criada com êxito, então ela será mostrada ao jogador.
+		if (wdwLogin ~= nil) then
+			guiSetVisible(wdwLogin, true)
+		else
+			-- Se a GUI não foi criada corretamente, notificaremos o jogador.
+			outputChatBox("Um erro inesperado ocorreu e a janela de login não foi criada.")
+		end
+
+		-- Habilitar o cursor para o jogador, para que ele possa clicar sobre os componentes.
+		showCursor(true)
+		-- Definir o foco de entrada para a GUI, permitindo, por exemplo, 
+		--que os jogadores pressionem 't', sem que o chatbox abra.
+		guiSetInputEnabled(true)
 	end
-end
+)
 
 function criarJanelaDeLogin()
 	wdwLogin = guiCreateWindow(0.375, 0.375, 0.25, 0.25, "Efetue o Login", true)
@@ -29,6 +41,7 @@ function criarJanelaDeLogin()
 	-- Definir o tamanho máximo de caracteres do nome de usuário e a senha para 50
 	guiEditSetMaxLength(editUsuario, 50)
 	guiEditSetMaxLength(editSenha, 50)
+
 	--Criar Botao Login
 	btnLogin = guiCreateButton(0.65, 0.7, 0.25, 0.2, "Login", true, wdwLogin)
 	
@@ -39,29 +52,7 @@ function criarJanelaDeLogin()
 	addEventHandler("onClientGUIClick", btnLogin, requisitarLogin, false)
 end
 
-addEventHandler( "onClientResourceStart", getResourceRootElement(getThisResource()), 
-	function ()
-		-- Chamando a função para criar a janela de login e seus componentes.
-		criarJanelaDeLogin()
-
-		-- Mostrar uma mensagem de boas-vindas ao jogador.
-		outputChatBox("Bem-vindo ao meu servidor do MTA:SA, por favor efetue o login.")
-
-		-- Se a GUI foi criada com êxito, então ela será mostrada ao jogador.
-		if (wdwLogin ~= nil) then
-			guiSetVisible(wdwLogin, true)
-		else
-			-- Se a GUI não foi criada corretamente, notificaremos o jogador.
-			outputChatBox("Um erro inesperado ocorreu e a janela de login não foi criada.")
-		end
-
-		-- Habilitar o cursor para o jogador, para que ele possa clicar sobre os componentes.
-		showCursor(true)
-		-- Definir o foco de entrada para a GUI, permitindo, por exemplo, que os jogadores pressionem 't', sem que o chatbox abra.
-		guiSetInputEnabled(true)
-	end
-)
-
+-- criar a função e definir os dois parâmetros do evento: 'button' - botão e state - estado do clique
 --Chamar Evento do Lado do Servidor Pelo Cliente
 function requisitarLogin(button,state)
 	if button == "left" and state == "up" then

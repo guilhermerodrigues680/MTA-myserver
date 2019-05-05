@@ -1,14 +1,31 @@
 <meta>
 	<!-- MEU script -->
 	
-	<info author="Guilherme_BH" type="gamemode" name="Meu_jogo" description="Meu primeiro mod" />
+	<info author="Guilherme_BH" type="gamemode" name="Jogo do Guilherme" description="Meu Servidor" />
 
-	<config src="help.xml" type="client" /> 
-	<script src="client/gui.lua" type="client" />
-	<script src="script.lua" type="server" />
-	<script src="login.lua" type="server" />
-	
-	<script src="testes.lua" type="server" />
-	<script src="testesClient.lua" type="client" />
+	<config src="help.xml" type="client" />
+
+	<!-- Scripts de Login -->
+	<script src="login/client/gui.lua" type="client" />
+	<script src="login/login.lua" type="server" />
+
+	<!-- Scripts Personalizados -->
+	<script src="scriptsCriados/atualizarStatus.lua" type="server" />
+	<script src="scriptsCriados/darArmas.lua" type="server" />
+	<script src="scriptsCriados/criarVeiculo.lua" type="server" />
+	<script src="scriptsCriados/criarVeiculoNaMarca.lua" type="server" />
+	<script src="scriptsCriados/teletransportes.lua" type="server" />
+	<script src="scriptsCriados/teleportMichael.lua" type="server" />
+	<script src="scriptsCriados/criarTrem.lua" type="server" />
+
+	<!-- Scripts Rotina Servidor -->
+	<script src="scriptsRotinaServer/reiniciarScripts.lua" type="server" />
+	<script src="scriptsRotinaServer/renascerAposMorte.lua" type="server" />
+	<script src="scriptsRotinaServer/spawnJogador.lua" type="server" />
+	<script src="scriptsRotinaServer/joinJogador.lua" type="server" />
+
+	<!-- Scripts de Testes -->
+	<script src="testes/testesLadoServer.lua" type="server" />
+	<script src="testes/testesLadoCliente.lua" type="client" />
 
 </meta>
